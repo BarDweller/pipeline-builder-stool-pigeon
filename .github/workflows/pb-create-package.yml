@@ -32,7 +32,7 @@ jobs:
 
                 set -euo pipefail
 
-                go install -ldflags="-s -w" github.com/BarDweller/libpak/cmd/create-package@058e778c9ab04c56e5161cd66b15ec638d821c9c
+                go install -ldflags="-s -w" github.com/BarDweller/libpak/cmd/create-package@8dd5cfc15ec9a8804a018b7bb1fb79fb4965044f
             - name: Install crane
               run: |
                 #!/usr/bin/env bash
