@@ -157,7 +157,7 @@ jobs:
 
                 PACKAGE_FILE=${SOURCE_PATH:-.}/package.toml
                 [[ -e ${PACKAGE_FILE} ]] && cp ${PACKAGE_FILE} "${HOME}"/package.toml
-                printf '[buildpack]\nuri = "%s"\n\n[platform]\nos = "%s"\n' "${HOME}"/${PACK_MODULE_TYPE} "${OS}" >> "${HOME}"/package.toml
+                printf '[${PACK_MODULE_TYPE}]\nuri = "%s"\n\n[platform]\nos = "%s"\n' "${HOME}"/${PACK_MODULE_TYPE} "${OS}" >> "${HOME}"/package.toml
               env:
                 EXTENSION: "true"
                 INCLUDE_DEPENDENCIES: "false"
