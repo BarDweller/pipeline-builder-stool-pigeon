@@ -3,7 +3,7 @@ module github.com/BarDweller/pipeline-builder-stool-pigeon
 go 1.20
 
 require (
-	github.com/buildpacks/libcnb v1.24.1-0.20230627130937-5d3d3f6e6d16
+	github.com/buildpacks/libcnb v1.28.0
 	github.com/onsi/gomega v1.27.8
 	github.com/paketo-buildpacks/libpak v1.66.1-0.20230627140602-0d0509ad1545
 	github.com/sclevine/spec v1.4.0
@@ -11,7 +11,6 @@ require (
 
 require (
 	github.com/BurntSushi/toml v1.3.2 // indirect
-	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
 	github.com/creack/pty v1.1.18 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
