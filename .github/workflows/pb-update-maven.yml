@@ -18,7 +18,7 @@ jobs:
 
                 set -euo pipefail
 
-                go install -ldflags="-s -w" github.com/BarDweller/libpak/cmd/update-buildmodule-dependency@08c0a7b80a4ffae866cac56f45e1cacc61cb29cd
+                go install -ldflags="-s -w" github.com/BarDweller/libpak/cmd/update-buildmodule-dependency@058e778c9ab04c56e5161cd66b15ec638d821c9c
             - name: Install yj
               run: |
                 #!/usr/bin/env bash
