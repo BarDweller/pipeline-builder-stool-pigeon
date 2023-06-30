@@ -208,7 +208,7 @@ jobs:
                 fi
               env:
                 EXTENSION: "true"
-                PACKAGES: docker.io/paketobuildpacks/pipeline-builder-stool-pigeon gcr.io/paketo-buildpacks/pipeline-builder-stool-pigeon
+                PACKAGES: docker.io/bardweller/pipeline-builder-stool-pigeon
                 PUBLISH: "true"
                 VERSION: ${{ steps.version.outputs.version }}
                 VERSION_MAJOR: ${{ steps.version.outputs.version-major }}
@@ -235,10 +235,4 @@ jobs:
               env:
                 DIGEST: ${{ steps.package.outputs.digest }}
                 GITHUB_TOKEN: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
-            - if: ${{ true }}
-              uses: docker://ghcr.io/buildpacks/actions/registry/request-add-entry:4.0.1
-              with:
-                address: docker.io/paketobuildpacks/pipeline-builder-stool-pigeon@${{ steps.package.outputs.digest }}
-                id: paketo-buildpacks/pipeline-builder-stool-pigeon
-                token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
-                version: ${{ steps.version.outputs.version }}
+
