@@ -151,6 +151,19 @@ jobs:
                   export PACK_MODULE_TYPE=buildpack
                 fi
 
+                echo ">>>package.toml"
+                cat ${HOME}"/package.toml"
+                echo "<<<"
+
+                echo "PACKAGE: ${PACKAGE}"
+                echo "PACK_MODULE_TYPE: ${PACK_MODULE_TYPE}"
+                echo "VERSION: ${VERSION}"
+                echo "FORMAT: ${FORMAT}"
+
+                echo ">>>dir content"
+                ls -alR ${HOME}
+                echo "<<<"
+
                 if [[ "${PUBLISH:-x}" == "true" ]]; then
                   pack ${PACK_MODULE_TYPE} package \
                     "${PACKAGE}:${VERSION}" \
