@@ -107,7 +107,7 @@ jobs:
                 #   but that may be newer than on the stacks we support.
                 export CGO_ENABLED=0
 
-                if [[ "${EXTENSION:-x}" == "true" ]] then
+                if [[ "${EXTENSION:-x}" == "true" ]]; then
                   export PACK_MODULE_TYPE=extension
                 else
                   export PACK_MODULE_TYPE=buildpack

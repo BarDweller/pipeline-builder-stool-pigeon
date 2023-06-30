@@ -56,7 +56,7 @@ jobs:
 
                 set -euo pipefail
 
-                if [[ "${EXTENSION:-x}" == "true" ]] then
+                if [[ "${EXTENSION:-x}" == "true" ]]; then
                   export PACK_MODULE_TYPE=extension
                 else
                   export PACK_MODULE_TYPE=buildpack
