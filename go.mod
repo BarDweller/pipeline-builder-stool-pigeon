@@ -2,6 +2,10 @@ module github.com/paketo-buildpacks/pipeline-builder-stool-pigeon
 
 go 1.20
 
+replace github.com/buildpacks/libcnb => github.com/buildpacks/libcnb v1.24.1-0.20230627130937-5d3d3f6e6d16
+
+replace github.com/paketo-buildpacks/libpak => github.com/paketo-buildpacks/libpak v1.66.1-0.20230707152440-cd6875914a49
+
 require (
 	github.com/buildpacks/libcnb v1.24.1-0.20230627130937-5d3d3f6e6d16
 	github.com/onsi/gomega v1.27.8
@@ -20,6 +24,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mitchellh/hashstructure/v2 v2.0.2 // indirect
+	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	golang.org/x/net v0.11.0 // indirect
 	golang.org/x/sys v0.9.0 // indirect
 	golang.org/x/text v0.10.0 // indirect
