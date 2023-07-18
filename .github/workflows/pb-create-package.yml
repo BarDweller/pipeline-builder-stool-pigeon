@@ -210,7 +210,7 @@ jobs:
                 fi
               env:
                 EXTENSION: "true"
-                PACKAGES: docker.io/paketobuildpacks/pipeline-builder-stool-pigeon gcr.io/paketo-buildpacks/pipeline-builder-stool-pigeon
+                PACKAGES: docker.io/paketobuildpacks/pipeline-builder-stool-pigeon
                 PUBLISH: "true"
                 VERSION: ${{ steps.version.outputs.version }}
                 VERSION_MAJOR: ${{ steps.version.outputs.version-major }}
