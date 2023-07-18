@@ -9,6 +9,13 @@ jobs:
         runs-on:
             - ubuntu-latest
         steps:
+            - name: Docker login gcr.io
+              if: ${{ (github.event_name != 'pull_request' || ! github.event.pull_request.head.repo.fork) && (github.actor != 'dependabot[bot]') }}
+              uses: docker/login-action@v2
+              with:
+                password: ${{ secrets.GCR_PUSH_BOT_JSON_KEY }}
+                registry: gcr.io
+                username: _json_key
             - name: Docker login docker.io
               if: ${{ (github.event_name != 'pull_request' || ! github.event.pull_request.head.repo.fork) && (github.actor != 'dependabot[bot]') }}
               uses: docker/login-action@v2
@@ -25,7 +32,9 @@ jobs:
 
                 set -euo pipefail
 
-                go install -ldflags="-s -w" github.com/BarDweller/libpak/cmd/create-package@8dd5cfc15ec9a8804a018b7bb1fb79fb4965044f
+                go install -ldflags="-s -w" github.com/paketo-buildpacks/libpak/cmd/create-package@${PAKETO_LIBPAK_COMMIT:=latest}
+              env:
+                PAKETO_LIBPAK_COMMIT: ${{ vars.PAKETO_LIBPAK_COMMIT }}
             - name: Install crane
               run: |
                 #!/usr/bin/env bash

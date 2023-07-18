@@ -1,6 +1,6 @@
-# `gcr.io/paketo-buildpacks/pipeline-builder-extension`
+# `gcr.io/paketo-buildpacks/pipeline-builder-stool-pigeon`
 
-The Paketo Extension for Pipeline Builder Canary is a Cloud Native Buildpack Image Extension that does nothing. It's primary purpose is to function as a validation for changes being made to the pipeline-builder.
+The Paketo Image Extension for Pipeline Builder Stool Pigeon is a Cloud Native Buildpack Image Extension that does nothing. It's primary purpose is to function as a validation for changes being made to the pipeline-builder.
 
 ## Behavior
 

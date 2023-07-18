@@ -24,7 +24,9 @@ jobs:
 
                 set -euo pipefail
 
-                go install -ldflags="-s -w" github.com/BarDweller/libpak/cmd/create-package@8dd5cfc15ec9a8804a018b7bb1fb79fb4965044f
+                go install -ldflags="-s -w" github.com/paketo-buildpacks/libpak/cmd/create-package@${PAKETO_LIBPAK_COMMIT:=latest}
+              env:
+                PAKETO_LIBPAK_COMMIT: ${{ vars.PAKETO_LIBPAK_COMMIT }}
             - name: Install pack
               run: |
                 #!/usr/bin/env bash
@@ -58,7 +60,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: actions/cache@v3
               with:
-                key: ${{ runner.os }}-go-${{ hashFiles('**/extension.toml', '**/package.toml') }}
+                key: ${{ runner.os }}-go-${{ hashFiles('**/buildpack.toml', '**/package.toml') }}
                 path: |-
                     ${{ env.HOME }}/.pack
                     ${{ env.HOME }}/carton-cache
@@ -150,15 +152,6 @@ jobs:
                 else
                   export PACK_MODULE_TYPE=buildpack
                 fi
-
-                echo ">>>package.toml"
-                cat ${HOME}"/package.toml"
-                echo "<<<"
-
-                echo "PACKAGE: ${PACKAGE}"
-                echo "PACK_MODULE_TYPE: ${PACK_MODULE_TYPE}"
-                echo "VERSION: ${VERSION}"
-                echo "FORMAT: ${FORMAT}"
 
                 if [[ "${PUBLISH:-x}" == "true" ]]; then
                   pack ${PACK_MODULE_TYPE} package \

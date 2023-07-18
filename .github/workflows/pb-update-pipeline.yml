@@ -23,7 +23,9 @@ jobs:
 
                 set -euo pipefail
 
-                go install -ldflags="-s -w" github.com/bardweller/pipeline-builder/cmd/octo@4db9f12570570cab152bfbf6a04fe3617a0e7dab
+                go install -ldflags="-s -w" github.com/paketo-buildpacks/pipeline-builder/cmd/octo@${PAKETO_PIPELINEBUILDER_COMMIT:=latest}
+              env:
+                PAKETO_PIPELINEBUILDER_COMMIT: ${{ vars.PAKETO_PIPELINEBUILDER_COMMIT }}
             - uses: actions/checkout@v3
             - name: Update Pipeline
               id: pipeline

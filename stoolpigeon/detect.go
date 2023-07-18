@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2020 the original author or authors.
+ * Copyright 2018-2023 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,24 @@
  * limitations under the License.
  */
 
-package canary_test
+package stoolpigeon
 
-import (
-	"testing"
+import "github.com/buildpacks/libcnb"
 
-	"github.com/sclevine/spec"
-	"github.com/sclevine/spec/report"
-)
+type Detect struct{}
 
-func TestUnit(t *testing.T) {
-	suite := spec.New("procfile", spec.Report(report.Terminal{}))
-	suite("Generate", testGenerate)
-	suite("Detect", testDetect)
-	suite.Run(t)
+func (d Detect) Detect(context libcnb.DetectContext) (libcnb.DetectResult, error) {
+	return libcnb.DetectResult{
+		Pass: true,
+		Plans: []libcnb.BuildPlan{
+			{
+				Provides: []libcnb.BuildPlanProvide{
+					{Name: "stoolpigeon"},
+				},
+				Requires: []libcnb.BuildPlanRequire{
+					{Name: "stoolpigeon"},
+				},
+			},
+		},
+	}, nil
 }

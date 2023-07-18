@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-package canary_test
+package stoolpigeon_test
 
 import (
-	"io/ioutil"
 	"os"
 	"testing"
 
-	"github.com/BarDweller/pipeline-builder-stool-pigeon/canary"
 	"github.com/buildpacks/libcnb"
 	. "github.com/onsi/gomega"
+	"github.com/paketo-buildpacks/pipeline-builder-stool-pigeon/stoolpigeon"
 	"github.com/sclevine/spec"
 )
 
@@ -32,12 +31,12 @@ func testDetect(t *testing.T, context spec.G, it spec.S) {
 		Expect = NewWithT(t).Expect
 
 		ctx    libcnb.DetectContext
-		detect canary.Detect
+		detect stoolpigeon.Detect
 	)
 
 	it.Before(func() {
 		var err error
-		ctx.ApplicationPath, err = ioutil.TempDir("", "canary")
+		ctx.ApplicationPath, err = os.MkdirTemp("", "stoolpigeon")
 		Expect(err).NotTo(HaveOccurred())
 	})
 
@@ -51,10 +50,10 @@ func testDetect(t *testing.T, context spec.G, it spec.S) {
 			Plans: []libcnb.BuildPlan{
 				{
 					Provides: []libcnb.BuildPlanProvide{
-						{Name: "canary"},
+						{Name: "stoolpigeon"},
 					},
 					Requires: []libcnb.BuildPlanRequire{
-						{Name: "canary"},
+						{Name: "stoolpigeon"},
 					},
 				},
 			},

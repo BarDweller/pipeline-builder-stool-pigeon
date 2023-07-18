@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package canary
+package stoolpigeon
 
 import (
 	"fmt"

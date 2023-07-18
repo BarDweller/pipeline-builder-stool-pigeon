@@ -19,14 +19,14 @@ package main
 import (
 	"os"
 
-	"github.com/BarDweller/pipeline-builder-stool-pigeon/canary"
 	"github.com/paketo-buildpacks/libpak"
 	"github.com/paketo-buildpacks/libpak/bard"
+	"github.com/paketo-buildpacks/pipeline-builder-stool-pigeon/stoolpigeon"
 )
 
 func main() {
 	libpak.ExtensionMain(
-		canary.Detect{}.Detect,
-		canary.Generator{Logger: bard.NewLogger(os.Stdout)}.Generate,
+		stoolpigeon.Detect{}.Detect,
+		stoolpigeon.Generator{Logger: bard.NewLogger(os.Stdout)}.Generate,
 	)
 }

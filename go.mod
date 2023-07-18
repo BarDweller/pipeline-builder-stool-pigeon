@@ -1,4 +1,4 @@
-module github.com/BarDweller/pipeline-builder-stool-pigeon
+module github.com/paketo-buildpacks/pipeline-builder-stool-pigeon
 
 go 1.20
 
